@@ -41,7 +41,7 @@ public class IncidenceArrayGraph implements Graph {
 		// 	}
 		// }
 		// return nbEdges;
-		return this.edges;
+		return this.edges/2;
 	}
 
 	@Override
@@ -81,6 +81,7 @@ public class IncidenceArrayGraph implements Graph {
 		addVertex(buffer[0]);
 		addVertex(buffer[1]);
 
+		this.edges++;
 		this.edges++;
 		
 		int i = 0;

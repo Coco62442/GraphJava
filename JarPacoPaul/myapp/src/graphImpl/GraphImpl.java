@@ -2,7 +2,7 @@ package graphImpl;
 
 import graph.*;
 
-public class TestGraphImpl {
+public class GraphImpl {
 	public static void main(String[] args) {
 		IncidenceArrayGraph graph = new IncidenceArrayGraph(3,true);
 		System.out.println("Debut test");

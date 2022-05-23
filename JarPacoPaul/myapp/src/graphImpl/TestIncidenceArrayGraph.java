@@ -53,16 +53,18 @@ public class TestIncidenceArrayGraph {
 		assertEquals(2, this.graph.nbOfEdges());
 	}
 
-	// @Test(expected = graphImpl.ErreurMaxSommets.class)
-	// public void ErreurMaxSommets() {
-	// 	this.graph.addVertex(v1);
-	// 	this.graph.addVertex(v2);
-	// 	this.graph.addVertex(v3);
-	// }
+	@Test(expected = graphImpl.ErreurMaxSommets.class)
+	public void ErreurMaxSommets() {
+		this.graph.addVertex(v1);
+		this.graph.addVertex(v2);
+		this.graph.addVertex(v3);
+	}
 
 	@Test
 	public void getEdges() {
 		this.graph.addUndirectedEdge(e1);
-		assertArrayEquals(new UndirectedEdge[] {e1}, this.graph.getEdges());
+		UndirectedEdge[] e = new UndirectedEdge[1];
+		e[0] = e1;
+		assertSame(e[0], this.graph.getEdges()[0]);
 	}
 }
