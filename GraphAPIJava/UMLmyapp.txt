@@ -1,0 +1,65 @@
+@startuml
+enum Color {
++rouge
++bleu
++vert
++orange
++...
+}
+
+package graph {
+class Vertex {
++ id : int
++ info : Object
++ color : Color
++toString() : String
+}
+
+class Edge {
++ id : int
++ color : Color
++ ends : Vertex[2]
++ value : double
++ ...
++ toString() : String
+}
+
+class UndirectedEdge {
++ source : int // 0 or 1
++ getSource() : Vertex
+getSink() : Vertex
++toString() : String
+}
+
+interface Graph {
++ nbOfVertices() : int
+
++ nbOfEdges() : int
+
++ addVertex(Vertex)
+
++ addEdge(Vertex, Vertex? EdgeKing) // EdgeKind: ‘directed’ or ‘undirected’
+
++ isConnected(Vertex, Vertex) : boolean // whether there is a path between the
+two vertices (without accounting for the edge directions)
+
++ isConnected() : boolean // says whether all vertices are interconnected
+
++ getEdges(Vertex, Vertex) : Edge[] // give edge(s) connecting these vertices
+
++ getEdges() : Edge [] // give all vetices of the graph
+
++ getNeighborEdges(Vertex) : Edge [] // give edges connected to this vertex
+
++ toString() : String
+}
+}
+class MyTest {
++test()
+}
+
+UndirectedEdge --|> Edge
+Vertex -- Edge
+Edge -- Graph
+Graph -- Vertex
+@enduml
